@@ -52,10 +52,10 @@ void dijkstra(vector<Edge> graph[], int vertex, int src)
         int currDist=pq.top().first;
         pq.pop();
 
-        if(currDist > dist[curr])
+        if(currDist>dist[curr])
             continue;
 
-        for (auto &edge : graph[curr]) 
+        for (auto &edge:graph[curr]) 
         {
             int u=edge.src;
             int v=edge.dest;
@@ -70,15 +70,18 @@ void dijkstra(vector<Edge> graph[], int vertex, int src)
     }
     cout << "Shortest distances:"<<endl;
     for (int i=0;i<vertex;i++)
-        cout<<"0 to "<<i<<" -> "<<dist[i]<<endl;
+        cout<<src<<" to "<<i<<" -> "<<dist[i]<<endl;
 }
 
 int main() 
 {
     int vertex=5;
+    int source;
     vector<Edge> graph[vertex];
+    cout<<"Enter source node: ";
+    cin>>source;
     
     createGraph(graph);
-    dijkstra(graph,vertex,0);
+    dijkstra(graph,vertex,source);
     return 0;
 }
