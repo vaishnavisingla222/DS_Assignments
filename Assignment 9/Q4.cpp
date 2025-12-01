@@ -55,8 +55,10 @@ void dijkstra(vector<Edge> graph[], int vertex, int src)
         if(currDist>dist[curr])
             continue;
 
-        for (auto &edge:graph[curr]) 
+        
+        for (int i=0;i<graph[curr].size();i++) 
         {
+            Edge &edge=graph[curr][i];
             int u=edge.src;
             int v=edge.dest;
             int w=edge.weight;
